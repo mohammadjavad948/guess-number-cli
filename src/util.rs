@@ -11,6 +11,13 @@ pub fn clear_terminal() {
     print!("\x1B[2J\x1B[1;1H");
 }
 
+pub fn print_guess_and_type(){
+    println!("{} {}",
+             Colour::Yellow.paint("Guess And Type Your Number"),
+             Colour::White.paint("Range 0 <--> 100")
+    );
+}
+
 pub fn print_level(level: &u32){
     print!("{} {} | ",
            Colour::Yellow.paint("Level >> "),

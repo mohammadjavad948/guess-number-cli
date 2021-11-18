@@ -24,10 +24,7 @@ fn main() {
 
             util::generate_try_tracker(&level, &try_tracker);
 
-            println!("{} {}",
-                     Colour::Yellow.paint("Guess And Type Your Number"),
-                     Colour::White.paint("Range 0 <--> 100")
-            );
+            util::print_guess_and_type();
 
             io::stdin()
                 .read_line(&mut input)
