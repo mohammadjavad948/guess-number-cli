@@ -46,8 +46,18 @@ pub fn generate_try_tracker(level: &u32, tries: &Vec<bool>){
 
     print!("{}", Colour::Blue.paint("Your Tries >> "));
 
-    for index in 1..generate_try_base_on_level(level) {
-        print!("{}", Colour::White.paint("-"));
+    for i in 1..generate_try_base_on_level(level) as usize {
+
+        let state = tries.get(i - 1);
+
+        match state {
+            Some(state) => {
+                print!("{}", Colour::Red.paint("-"));
+            },
+            None => {
+                print!("{}", Colour::White.paint("-"));
+            }
+        }
     }
 
     println!(" ")

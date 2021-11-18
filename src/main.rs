@@ -21,7 +21,6 @@ fn main() {
 
             util::print_level(&level);
             util::print_try_count(&try_tracker);
-
             util::generate_try_tracker(&level, &try_tracker);
 
             util::print_guess_and_type();
