@@ -8,7 +8,7 @@ fn main() {
     println!("{}", Colour::Cyan.bold().paint("Welcome to Number Guess!"));
 
     loop {
-        let x: u8 = util::gen_random();
+        let random_number: u8 = util::gen_random();
         let mut input = String::new();
 
         println!("gimme Input :");
@@ -19,7 +19,7 @@ fn main() {
 
         let input = input.trim();
 
-        println!("you guess {} i guessed {}", input, x)
+        println!("you guess {} i guessed {}", input, random_number)
     }
 }
 
