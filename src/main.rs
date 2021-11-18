@@ -19,6 +19,11 @@ fn main() {
         'try_loop: loop {
             let mut input = String::new();
 
+            util::print_level(&level);
+            util::print_try_count(&try_tracker);
+
+            util::generate_try_tracker(&level, &try_tracker);
+
             println!("{} {}",
                      Colour::Yellow.paint("Guess And Type Your Number"),
                      Colour::White.paint("Range 0 <--> 100")
