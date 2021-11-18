@@ -24,9 +24,10 @@ fn main() {
             .read_line(&mut input)
             .expect("hmm i cant get input");
 
-        let input = input.trim();
+        let input: u8 = input.trim().parse().expect("not a string");
 
-        println!("you guess {} i guessed {}", input, random_number)
+
+        util::clear_terminal();
     }
 }
 
