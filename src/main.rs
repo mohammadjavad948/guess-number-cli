@@ -16,6 +16,11 @@ fn main() {
     let mut try_tracker: Vec<bool> = vec![];
 
     loop {
+
+        if try_tracker.len() == util::generate_try_base_on_level(&level) as usize {
+            break;
+        }
+
         let mut input = String::new();
 
         util::print_level(&level);
@@ -40,5 +45,7 @@ fn main() {
 
         util::clear_terminal();
     }
+
+    util::end_game(&level, &try_tracker);
 }
 

@@ -62,3 +62,15 @@ pub fn generate_try_tracker(level: &u32, tries: &Vec<bool>){
 
     println!(" ")
 }
+
+pub fn end_game(level: &u32, try_tracker: &Vec<bool>){
+
+    clear_terminal();
+
+    println!("{} {} {} {}",
+             Colour::Red.paint("You Lost At Level :"),
+             Colour::Red.paint(level.to_string()),
+             Colour::Red.paint("And Try :"),
+             Colour::Red.paint(try_tracker.len().to_string())
+    )
+}
