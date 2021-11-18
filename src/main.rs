@@ -7,14 +7,16 @@ fn main() {
 
     util::clear_terminal();
 
-    println!("{}", Colour::Cyan.bold().paint("Welcome to Number Guess!"));
+    println!("{}", Colour::Cyan.bold().paint("Welcome to Number Guess Game!"));
+
+    println!("{}", Colour::White.paint("-------------------------------"));
 
     loop {
         let random_number: u8 = util::gen_random();
         let mut input = String::new();
 
         println!("{} {}",
-            Colour::Yellow.paint("Guess A Number"),
+            Colour::Yellow.paint("Guess And Type Your Number"),
             Colour::White.paint("vvv")
         );
 
