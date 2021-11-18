@@ -11,20 +11,25 @@ fn main() {
 
     println!("{}", Colour::White.paint("-------------------------------"));
 
-    loop {
+    'game_loop: loop {
         let random_number: u8 = util::gen_random();
-        let mut input = String::new();
+        let mut level = 1;
+        let mut try_tracker: Vec<bool> = vec![];
 
-        println!("{} {}",
-            Colour::Yellow.paint("Guess And Type Your Number"),
-            Colour::White.paint("vvv")
-        );
+        'try_loop: loop {
+            let mut input = String::new();
 
-        io::stdin()
-            .read_line(&mut input)
-            .expect("hmm i cant get input");
+            println!("{} {}",
+                     Colour::Yellow.paint("Guess And Type Your Number"),
+                     Colour::White.paint("Range 0 <--> 100")
+            );
 
-        let input: u8 = input.trim().parse().expect("not a string");
+            io::stdin()
+                .read_line(&mut input)
+                .expect("hmm i cant get input");
+
+            let input: u8 = input.trim().parse().expect("not a string");
+        }
 
 
         util::clear_terminal();
