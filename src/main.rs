@@ -29,7 +29,7 @@ fn main() {
                 .read_line(&mut input)
                 .expect("hmm i cant get input");
 
-            let input: u8 = input.trim().parse().expect("not a string");
+            let input: u8 = input.trim().parse().expect("not a string or number");
         }
 
 
