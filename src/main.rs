@@ -11,7 +11,10 @@ fn main() {
         let random_number: u8 = util::gen_random();
         let mut input = String::new();
 
-        println!("gimme Input :");
+        println!("{} {}",
+            Colour::Yellow.paint("Guess A Number"),
+            Colour::White.paint("vvv")
+        );
 
         io::stdin()
             .read_line(&mut input)
