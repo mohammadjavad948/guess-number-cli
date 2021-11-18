@@ -5,6 +5,8 @@ mod util;
 
 fn main() {
 
+    util::clear_terminal();
+
     println!("{}", Colour::Cyan.bold().paint("Welcome to Number Guess!"));
 
     loop {
