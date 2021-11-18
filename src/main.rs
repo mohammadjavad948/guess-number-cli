@@ -13,7 +13,7 @@ fn main() {
 
     'game_loop: loop {
         let random_number: u8 = util::gen_random();
-        let mut level = 1;
+        let mut level: u32 = 1;
         let mut try_tracker: Vec<bool> = vec![];
 
         'try_loop: loop {
