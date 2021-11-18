@@ -1,14 +1,15 @@
 use std::io;
+use ansi_term::Colour;
 
 mod util;
 
 fn main() {
 
+    println!("{}", Colour::Cyan.bold().paint("Welcome to Number Guess!"));
+
     loop {
         let x: u8 = util::gen_random();
         let mut input = String::new();
-
-        println!("random number generated !");
 
         println!("gimme Input :");
 
