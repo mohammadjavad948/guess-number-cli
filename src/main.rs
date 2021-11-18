@@ -1,10 +1,15 @@
-use rand::Rng;
-use rand::thread_rng;
+use rand::{thread_rng, Rng};
 
 fn main() {
 
+    loop {
+        let x: u8 = gen_random();
+        println!("{}", x);
+    }
+}
+
+fn gen_random() -> u8{
     let mut rng = thread_rng();
 
-    let x: u8 = rng.gen_range(0..100);
-    println!("{}", x);
+    rng.gen_range(0..100)
 }
