@@ -20,6 +20,6 @@ pub fn generate_try_base_on_level(level: &u32) -> u3 {
     return tries;
 }
 
-pub fn generate_try_tracker(){
+pub fn generate_try_tracker(level: &u32, tries: Vec<bool>){
 
 }
