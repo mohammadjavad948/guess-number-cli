@@ -4,7 +4,7 @@ use ansi_term::Colour;
 pub fn gen_random() -> u8{
     let mut rng = thread_rng();
 
-    rng.gen_range(0..100)
+    rng.gen_range(0..10)
 }
 
 pub fn clear_terminal() {
@@ -14,7 +14,7 @@ pub fn clear_terminal() {
 pub fn print_guess_and_type(){
     println!("{} {}",
              Colour::Yellow.paint("Guess And Type Your Number"),
-             Colour::White.paint("Range 0 <--> 100")
+             Colour::White.paint("Range 0 <--> 10")
     );
 }
 
