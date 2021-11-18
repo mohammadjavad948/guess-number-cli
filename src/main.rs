@@ -37,9 +37,8 @@ fn main() {
         } else {
             try_tracker.push(false);
         }
+
+        util::clear_terminal();
     }
-
-
-    util::clear_terminal();
 }
 
