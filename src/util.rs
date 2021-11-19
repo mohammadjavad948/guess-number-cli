@@ -51,7 +51,7 @@ pub fn generate_try_tracker(level: &usize, tries: &Vec<bool>){
         let state = tries.get(i);
 
         match state {
-            Some(state) => {
+            Some(_) => {
                 print!("{}", Colour::Red.paint("-"));
             },
             None => {
