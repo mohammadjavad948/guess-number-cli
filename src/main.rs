@@ -12,7 +12,7 @@ fn main() {
     println!("{}", Colour::White.paint("-------------------------------"));
 
     let mut random_number: u8 = util::gen_random();
-    let mut level: u32 = 1;
+    let mut level: usize = 1;
     let mut try_tracker: Vec<bool> = vec![];
 
     loop {

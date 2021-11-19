@@ -18,7 +18,7 @@ pub fn print_guess_and_type(){
     );
 }
 
-pub fn print_level(level: &u32){
+pub fn print_level(level: &usize){
     print!("{} {} | ",
            Colour::Yellow.paint("Level >> "),
            Colour::Yellow.paint(level.to_string())
@@ -32,21 +32,21 @@ pub fn print_try_count(try_tracker: &Vec<bool>){
     );
 }
 
-pub fn generate_try_base_on_level(level: &u32) -> u32 {
-    let tries: i32 = (11 - level) as i32;
+pub fn generate_try_base_on_level(level: &usize) -> usize {
+    let tries: isize = (11 - level) as isize;
 
     if tries < 1 {
         return 3;
     }
 
-    return tries as u32;
+    return tries as usize;
 }
 
-pub fn generate_try_tracker(level: &u32, tries: &Vec<bool>){
+pub fn generate_try_tracker(level: &usize, tries: &Vec<bool>){
 
     print!("{}", Colour::Blue.paint("Your Tries >> "));
 
-    for i in 0..generate_try_base_on_level(level) as usize {
+    for i in 0..generate_try_base_on_level(level) {
 
         let state = tries.get(i);
 
@@ -63,7 +63,7 @@ pub fn generate_try_tracker(level: &u32, tries: &Vec<bool>){
     println!(" ")
 }
 
-pub fn end_game(level: &u32, try_tracker: &Vec<bool>){
+pub fn end_game(level: &usize, try_tracker: &Vec<bool>){
 
     clear_terminal();
 
