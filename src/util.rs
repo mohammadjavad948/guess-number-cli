@@ -1,5 +1,6 @@
 use rand::{thread_rng, Rng};
 use ansi_term::Colour;
+use std::time::Duration;
 
 pub fn gen_random() -> u8{
     let mut rng = thread_rng();
@@ -15,6 +16,13 @@ pub fn print_guess_and_type(){
     println!("{} {}",
              Colour::Yellow.paint("Guess And Type Your Number"),
              Colour::White.paint("Range 0 <--> 10")
+    );
+}
+
+pub fn print_response_time(time: &Duration){
+    print!("{} {:.2?}",
+           Colour::Green.paint("Response Time >> "),
+           time
     );
 }
 
@@ -60,7 +68,7 @@ pub fn generate_try_tracker(level: &usize, tries: &Vec<bool>){
         }
     }
 
-    println!(" ")
+    print!(" | ")
 }
 
 pub fn end_game(level: &usize, try_tracker: &Vec<bool>){

@@ -1,5 +1,6 @@
 use std::io;
 use ansi_term::Colour;
+use std::time::Instant;
 
 mod util;
 
@@ -17,6 +18,8 @@ fn main() {
 
     loop {
 
+        let start = Instant::now();
+
         if try_tracker.len() == util::generate_try_base_on_level(&level) as usize {
             break;
         }
@@ -26,6 +29,11 @@ fn main() {
         util::print_level(&level);
         util::print_try_count(&try_tracker);
         util::generate_try_tracker(&level, &try_tracker);
+
+        let elapsed = start.elapsed();
+        util::print_response_time(&elapsed);
+
+        println!(" ");
 
         util::print_guess_and_type();
 
