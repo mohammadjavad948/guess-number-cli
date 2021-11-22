@@ -80,11 +80,11 @@ impl Game {
 
         print!("{}", Colour::Blue.paint("Your Tries >> "));
 
-        let tries: Vec<usize> = vec![0; Game::generate_try_base_on_level(&self)];
+        let tries = 0..Game::generate_try_base_on_level(&self);
         let fails = self.try_tracker.len();
 
-        for x in tries.iter() {
-            if x <= &fails {
+        for x in tries {
+            if x < fails {
                 print!("{}", Colour::Red.paint("-"));
             } else {
                 print!("{}", Colour::White.paint("-"));
