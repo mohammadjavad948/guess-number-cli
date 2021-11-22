@@ -108,6 +108,18 @@ impl Game {
             .expect("hmm i cant get input");
     }
 
+    fn calculate_user_input(&mut self){
+        let input: u8 = self.user_input.trim().parse().expect("not a string or number");
+
+        if input == self.random_number {
+            self.level += 1;
+            self.try_tracker = vec![];
+            self.random_number = Game::generate_random_number();
+        } else {
+            self.try_tracker.push(false);
+        }
+    }
+
     fn generate_random_number() -> u8 {
         let mut rng = thread_rng();
 
