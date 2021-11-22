@@ -82,3 +82,30 @@ pub fn end_game(level: &usize, try_tracker: &Vec<bool>){
              Colour::Red.paint(try_tracker.len().to_string())
     )
 }
+
+pub struct Game {
+    random_number: u8,
+    level: usize,
+    try_tracker: Vec<bool>,
+}
+
+impl Game {
+
+    fn new() -> Game{
+        Game {
+            try_tracker: vec![],
+            level: 1,
+            random_number: Game::generate_random_number()
+        }
+    }
+
+    pub fn generate_random_number() -> u8{
+        let mut rng = thread_rng();
+
+        rng.gen_range(0..10)
+    }
+
+    pub fn clear_terminal() {
+        print!("\x1B[2J\x1B[1;1H");
+    }
+}
