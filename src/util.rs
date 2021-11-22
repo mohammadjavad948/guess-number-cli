@@ -25,6 +25,8 @@ impl Game {
     }
 
     pub fn get_user_input(&mut self){
+        self.user_input = String::new();
+
         io::stdin()
             .read_line(&mut self.user_input)
             .expect("hmm i cant get input");
@@ -81,15 +83,13 @@ impl Game {
         let tries: Vec<usize> = vec![0; Game::generate_try_base_on_level(&self)];
         let fails = self.try_tracker.len();
 
-        tries
-            .iter()
-            .map(|x| {
-                if x <= &fails {
-                    print!("{}", Colour::Red.paint("-"))
-                } else {
-                    print!("{}", Colour::White.paint("-"))
-                }
-            });
+        for x in tries.iter() {
+            if x <= &fails {
+                print!("{}", Colour::Red.paint("-"));
+            } else {
+                print!("{}", Colour::White.paint("-"));
+            }
+        }
     }
 
 
