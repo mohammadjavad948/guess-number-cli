@@ -87,6 +87,7 @@ pub struct Game {
     random_number: u8,
     level: usize,
     try_tracker: Vec<bool>,
+    user_input: String
 }
 
 impl Game {
@@ -95,7 +96,8 @@ impl Game {
         Game {
             try_tracker: vec![],
             level: 1,
-            random_number: Game::generate_random_number()
+            random_number: Game::generate_random_number(),
+            user_input: String::new()
         }
     }
 
