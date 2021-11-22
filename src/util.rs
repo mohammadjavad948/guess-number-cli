@@ -1,6 +1,7 @@
 use rand::{thread_rng, Rng};
 use ansi_term::Colour;
 use std::time::Duration;
+use std::io;
 
 pub fn gen_random() -> u8{
     let mut rng = thread_rng();
@@ -99,6 +100,12 @@ impl Game {
             random_number: Game::generate_random_number(),
             user_input: String::new()
         }
+    }
+
+    fn get_user_input(&mut self){
+        io::stdin()
+            .read_line(&mut self.user_input)
+            .expect("hmm i cant get input");
     }
 
     fn generate_random_number() -> u8 {
