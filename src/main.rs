@@ -1,59 +1,35 @@
+mod util;
+
 use std::io;
 use ansi_term::Colour;
 use std::time::Instant;
-
-mod util;
+use util::Game;
 
 fn main() {
 
-    util::clear_terminal();
+    Game::clear_terminal();
 
     println!("{}", Colour::Cyan.bold().paint("Welcome to Number Guess Game!"));
 
     println!("{}", Colour::White.paint("-------------------------------"));
 
-    let mut random_number: u8 = util::gen_random();
-    let mut level: usize = 1;
-    let mut try_tracker: Vec<bool> = vec![];
+    let mut game = Game::new();
 
     loop {
 
-        let start = Instant::now();
-
-        if try_tracker.len() == util::generate_try_base_on_level(&level) as usize {
+        if game.is_not_playable() {
             break;
         }
 
-        let mut input = String::new();
+        game.print_info();
 
-        util::print_level(&level);
-        util::print_try_count(&try_tracker);
-        util::generate_try_tracker(&level, &try_tracker);
+        game.get_user_input();
 
-        let elapsed = start.elapsed();
-        util::print_response_time(&elapsed);
+        game.calculate_user_input();
 
-        println!(" ");
-
-        util::print_guess_and_type();
-
-        io::stdin()
-            .read_line(&mut input)
-            .expect("hmm i cant get input");
-
-        let input: u8 = input.trim().parse().expect("not a string or number");
-
-        if input == random_number {
-            level += 1;
-            try_tracker = vec![];
-            random_number = util::gen_random();
-        } else {
-            try_tracker.push(false);
-        }
-
-        util::clear_terminal();
+        Game::clear_terminal();
     }
 
-    util::end_game(&level, &try_tracker);
+    game.end_game();
 }
 
