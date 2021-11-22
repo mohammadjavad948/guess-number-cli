@@ -1,8 +1,6 @@
 mod util;
 
-use std::io;
 use ansi_term::Colour;
-use std::time::Instant;
 use util::Game;
 
 fn main() {

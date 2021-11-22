@@ -1,6 +1,5 @@
 use rand::{thread_rng, Rng};
 use ansi_term::Colour;
-use std::time::Duration;
 use std::io;
 
 pub struct Game {
@@ -37,7 +36,7 @@ impl Game {
         if input == self.random_number {
             self.level += 1;
             self.try_tracker = vec![];
-            self.random_number = self.generate_random_number();
+            self.random_number = Game::generate_random_number();
         } else {
             self.try_tracker.push(false);
         }
