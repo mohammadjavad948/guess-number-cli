@@ -92,7 +92,7 @@ pub struct Game {
 
 impl Game {
 
-    fn new() -> Game{
+    fn new() -> Game {
         Game {
             try_tracker: vec![],
             level: 1,
@@ -101,13 +101,13 @@ impl Game {
         }
     }
 
-    pub fn generate_random_number() -> u8{
+    fn generate_random_number() -> u8 {
         let mut rng = thread_rng();
 
         rng.gen_range(0..10)
     }
 
-    pub fn clear_terminal() {
+    fn clear_terminal() {
         print!("\x1B[2J\x1B[1;1H");
     }
 }
